@@ -1,0 +1,65 @@
+/* Custom CSS for the Dashboard Component */
+
+body {
+    background-color: #f8f9fa;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100; /* Sidebar stays above content */
+    padding: 48px 0 0; /* Height of navbar */
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+  
+  .nav-link {
+    font-weight: 500;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  .table {
+    background-color: #fff;
+    border-radius: 12px;
+  }
+  
+  .table th, .table td {
+    border-top: 0;
+  }
+  
+  .modal-content {
+    border-radius: 12px;
+  }
+  
+  .modal-header {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+  
+  .modal-title {
+    font-weight: 500;
+  }
+  
+  .modal-body input[type="text"],
+  .modal-body textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc
+  }  
+/* Custom styles for the collapsed sidebar */
+.collapsed {
+    width: 50px; /* Adjust as needed */
+    /* Other styling for a collapsed sidebar */
+  }
+  
+
+

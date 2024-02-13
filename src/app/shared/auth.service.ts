@@ -49,16 +49,22 @@ export class AuthService {
  //sign out
 
 
-  logout(){
-    this.fireauth.signOut().then(()=>{
-      localStorage.removeItem(AppStrings.TOKEN_KEY);
-      this.router.navigate([AppStrings.LOGIN_ROUTE]);
+ async logout(): Promise<void> {
+  try {
+    // Sign out from Firebase
+    await this.fireauth.signOut();
 
-    },err=>{
-      alert(err.message);
-      
-    })
+    // Clear local storage
+    localStorage.removeItem(AppStrings.TOKEN_KEY);
+    localStorage.removeItem('userEmail');
+    
+    // Navigate to login page
+    this.router.navigate([AppStrings.LOGIN_ROUTE]);
+  } catch (error:any) {
+    console.error('Error signing out:', error);
+    alert(error.message);
   }
+}
 
 
   //forgot password
@@ -105,10 +111,16 @@ export class AuthService {
       const provider = new GoogleAuthProvider();
       provider.setCustomParameters({ prompt: 'select_account' }); 
       return this.fireauth.signInWithPopup(provider).then(res => {
+        const email = res.user?.email;
+        if (email) {
+          localStorage.setItem(this.userEmailKey, email); // Store the user's email in localStorage
+        }
         this.router.navigate([AppStrings.DASHBOARD_ROUTE]);
         localStorage.setItem('token', JSON.stringify(res.user?.uid));
       }).catch(err => {
         alert(err.message);
+          
+        
       });
     }
 

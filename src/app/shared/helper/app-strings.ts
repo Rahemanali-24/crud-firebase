@@ -19,6 +19,9 @@ export class AppStrings {
     static readonly SOMETHING_WENT_WRONG_NOT_ABLE_TO_SEND_MESSAGE = "Something went wrong.not able to send mail to your email";
     static readonly USER_NOT_FOUND_MESSAGE = "user not found";
     static readonly EMAIL_VERIFICATION_FAILED_MESSAGE = "email verification failed";
-
-    
+    static readonly STUDENT_COLLECTION_NAME = '/Students';
+    static readonly STUDENT_COLLECTION_NAME_WITHID = '/Students/';
+    static readonly ERROR_WHILE_FETCHING_STUDNET ="Error while fetching student data";
+    static readonly CONFORMATION_DELETE_MESSAGE = 'Are you sure you want to delete';
+    static readonly FILL_ALL_FIELDS_MESSAGE = "Fill all input fields";
 }

@@ -1,129 +1,125 @@
 <div class="container-fluid">
-    <!-- Header -->
-    <header class="navbar navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand" href="/dashboard">Dashboard</a>
+  <!-- Header -->
+  <header class="navbar navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/dashboard">Dashboard</a>
+    </div>
+  </header>
+
+  <div class="row">
+    <!-- Sidebar Navigation -->
+    <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+      <div class="position-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/dashboard"><h2>Dashboard</h2></a>
+      <button type="submit" class="btn btn-primary mx-5" (click)="onLogout()">log Out</button>
+
+            <!-- Add the button here -->
+            
+          </li>
+        </ul>
       </div>
-    </header>
-  
-    <div class="row">
-      <!-- Sidebar Navigation -->
-      <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
-        <div class="position-sticky">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/dashboard"><h2>Dashboard</h2></a>
-        <button type="submit" class="btn btn-primary mx-5" (click)="onLogout()">log Out</button>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Dashboard</h1>
+      </div>
 
-              <!-- Add the button here -->
-              
-            </li>
-          </ul>
-        </div>
-      </nav>
-      
-      <!-- Main Content -->
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">Dashboard</h1>
-        </div>
-  
-        <!-- Data Table -->
-        <div class="table-responsive">
-          <table class="table table-striped table-bordered">
-            <thead class="table-dark">
-              <tr>
-              
-                <th scope="col">FirstName</th>
-                <th scope="col">LastName</th>
-                <th scope="col">Email</th>
-                <th scope="col">Mobile</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let student of studentList">
-                <td>{{student.first_name}}</td>
-                <td>{{student.last_name}}</td>
-                <td>{{student.email}}</td>
-                <td>{{student.mobile}}</td>
-                <td>
-                  <button class ="btn btn-outline-danger" (click)="deleteStudnet(student)">Delete</button>
-                </td>
+      <!-- Data Table -->
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+          <thead class="table-dark">
+            <tr>
+            
+              <th scope="col">FirstName</th>
+              <th scope="col">LastName</th>
+              <th scope="col">Email</th>
+              <th scope="col">Mobile</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let student of studentList">
+              <td>{{student.first_name}}</td>
+              <td>{{student.last_name}}</td>
+              <td>{{student.email}}</td>
+              <td>{{student.mobile}}</td>
+              <td>
+                <button class ="btn btn-outline-danger" (click)="deleteStudnet(student)">Delete</button>
+              </td>
 
-              </tr>
-            </tbody>
-          </table>
-        </div>
-  
-        <!-- Add Item Button -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addItemModal">
-          <i class="bi bi-plus"></i> Add Item
-        </button>
-  
-        <!-- Add Item Modal -->
-        <div class="modal fade" id="addItemModal" tabindex="-1" aria-labelledby="addItemModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title" id="addItemModalLabel">Add Item</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="mb-3">
-                    <label for="firstName" class="form-label">FirstName</label>
-                    <input type="text" [(ngModel)]="first_name"  class="form-control" id="firstName" name="firstName">
-                  </div>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-                  <div class="mb-3">
-                    <label for="lastName"  class="form-label">LastName</label>
-                    <input type="text" [(ngModel)]="last_name" class="form-control" id="lastName" name="lastName">
-                  </div>
+      <!-- Add Item Button -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addItemModal">
+        <i class="bi bi-plus"></i> Add Item
+      </button>
 
-                  <div class="mb-3">
-                    <label for="email" class="form-label">Email address</label>
-                    <input type="email" [(ngModel)]="email"  class="form-control" id="email" name="email">
-                  </div>
+      <!-- Add Item Modal -->
+      <div class="modal fade" id="addItemModal" tabindex="-1" aria-labelledby="addItemModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+              <h5 class="modal-title" id="addItemModalLabel">Add Item</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="firstName" class="form-label">FirstName</label>
+                  <input type="text" [(ngModel)]="first_name"  class="form-control" id="firstName" name="firstName">
+                </div>
 
-                  <div class="mb-3">
-                    <label for="mobile" class="form-label">Mobile</label>
-                    <input type="text"  [(ngModel)]="mobile" class="form-control" id="mobile" name="mobile">
-                  </div>
-               
-                  <button type="submit" class="btn btn-primary" (click)="addStudent()">Add Studnets</button>
-                </form>
-              </div>
+                <div class="mb-3">
+                  <label for="lastName"  class="form-label">LastName</label>
+                  <input type="text" [(ngModel)]="last_name" class="form-control" id="lastName" name="lastName">
+                </div>
+
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email address</label>
+                  <input type="email" [(ngModel)]="email"  class="form-control" id="email" name="email">
+                </div>
+
+                <div class="mb-3">
+                  <label for="mobile" class="form-label">Mobile</label>
+                  <input type="text"  [(ngModel)]="mobile" class="form-control" id="mobile" name="mobile">
+                </div>
+             
+                <button type="submit" class="btn btn-primary" (click)="addStudent()">Add Studnets</button>
+              </form>
             </div>
           </div>
         </div>
-      </main>
-
-
- 
-     
-     
-      <div class="container-fluid">
-        <!-- Header -->
-        <header class="navbar navbar-dark bg-dark">
-          <div class="container">
-            <a class="navbar-brand" href="/dashboard">Dashboard</a>
-          </div>
-        </header>
-      
-        <div class="row">
-          <!-- Sidebar Navigation -->
-          <!-- Main Content -->
-          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <h1>Welcome, {{ userEmail }}</h1>
-            <!-- Rest of your dashboard content -->
-          </main>
-        </div>
       </div>
-      
+    </main>
+
+
+
+   
+   
+    <div class="container-fluid">
+      <!-- Header -->
+      <header class="navbar navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="/dashboard">Dashboard</a>
+        </div>
+      </header>
+    
+      <div class="row">
+        <!-- Sidebar Navigation -->
+        <!-- Main Content -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <h1>Welcome, {{ userEmail }}</h1>
+          <!-- Rest of your dashboard content -->
+        </main>
+      </div>
     </div>
+    
   </div>
-
- 
-
-  
+</div>

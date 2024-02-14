@@ -24,4 +24,5 @@ export class AppStrings {
     static readonly ERROR_WHILE_FETCHING_STUDNET ="Error while fetching student data";
     static readonly CONFORMATION_DELETE_MESSAGE = 'Are you sure you want to delete';
     static readonly FILL_ALL_FIELDS_MESSAGE = "Fill all input fields";
+    
 }

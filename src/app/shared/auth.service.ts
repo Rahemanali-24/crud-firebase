@@ -67,6 +67,7 @@ export class AuthService {
 }
 
 
+
   //forgot password
 
     forgotPassword(email : string){
@@ -111,16 +112,14 @@ export class AuthService {
       const provider = new GoogleAuthProvider();
       provider.setCustomParameters({ prompt: 'select_account' }); 
       return this.fireauth.signInWithPopup(provider).then(res => {
+        localStorage.setItem('token', JSON.stringify(res.user?.uid));
         const email = res.user?.email;
         if (email) {
           localStorage.setItem(this.userEmailKey, email); // Store the user's email in localStorage
         }
         this.router.navigate([AppStrings.DASHBOARD_ROUTE]);
-        localStorage.setItem('token', JSON.stringify(res.user?.uid));
       }).catch(err => {
         alert(err.message);
-          
-        
       });
     }
 

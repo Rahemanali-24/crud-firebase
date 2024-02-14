@@ -32,7 +32,6 @@ export class DashboardComponent implements OnInit {
   mobile: string = '';
 
   userEmail: string = '';
-
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
@@ -43,11 +42,9 @@ export class DashboardComponent implements OnInit {
     private fireAuth: AngularFireAuth,
     private data: DataService
   ) {}
-
   ngOnInit(): void {
     this.userEmail = this.authService.getUserEmail();
     console.log(this.userEmail);
-
     this.getAllStudents();
   }
 
@@ -72,7 +69,6 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-  //reset form
 
   resetForm() {
     this.id = '';
@@ -82,7 +78,6 @@ export class DashboardComponent implements OnInit {
     this.mobile = '';
   }
 
-  //add
 
   addStudent() {
     if (
@@ -105,11 +100,9 @@ export class DashboardComponent implements OnInit {
     this.resetForm();
   }
 
-  //update
 
   updateStudent() {}
 
-  //delete studnent
 
   deleteStudnet(student: Student) {
     if (
@@ -122,6 +115,25 @@ export class DashboardComponent implements OnInit {
       )
     ) {
       this.data.deleteStudent(student);
+    }
+  }
+
+  async googleSignOut(): Promise<void> {
+    try {
+      // Sign out from Firebase
+      await this.fireAuth.signOut();
+
+      // Sign out from Google
+      const auth2 = firebase.auth();
+      await auth2.signOut();
+
+      // Clear local storage and navigate to login page
+      localStorage.removeItem(AppStrings.TOKEN_KEY);
+      localStorage.clear();
+      localStorage.removeItem('userEmail');
+      this.router.navigate(['/login']);
+    } catch (error) {
+      console.error('Error signing out:', error);
     }
   }
 }

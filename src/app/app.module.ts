@@ -8,9 +8,13 @@ import { environment } from '../environments/environment';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './component/verify-email/verify-email.component';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { UserDashboardComponent } from './component/user-dashboard/user-dashboard.component'; // Import AngularFirestoreModule
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,15 +22,19 @@ import { VerifyEmailComponent } from './component/verify-email/verify-email.comp
     RegisterComponent,
     DashboardComponent,
     ForgotPasswordComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    UserDashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     FormsModule,
+    AngularFirestoreModule,
+    ReactiveFormsModule,
+   
   ],
-  providers: [],
+  providers: [ JwtHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

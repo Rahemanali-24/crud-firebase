@@ -16,12 +16,29 @@ export class AuthService {
 
   //login method
   private userEmailKey = 'userEmail'; 
+ 
+  private isAuthenticated = false;
+
+
+  loginRoute(email:string){
+    if(email == "rahemaniflair@gmail.com"){
+      this.router.navigate([AppStrings.DASHBOARD_ROUTE]);
+     }else{
+      this.router.navigate([AppStrings.USER_DASHBOARD_MESSAGE]);
+     }
+  }
+
+
   login(email:string,password:string){
       this.fireauth.signInWithEmailAndPassword(email,password).then(res =>{
         localStorage.setItem(AppStrings.TOKEN_KEY,AppStrings.TRUE_VALUE);
         localStorage.setItem(this.userEmailKey, email);
         if(res.user?.emailVerified == true){
-          this.router.navigate([AppStrings.DASHBOARD_ROUTE]);
+ 
+          this.loginRoute(email);
+          this.isAuthenticated = true;
+
+          
         }else{
           this.router.navigate([AppStrings.VERIFY_ROUTE]);
         }
@@ -57,6 +74,8 @@ export class AuthService {
     // Clear local storage
     localStorage.removeItem(AppStrings.TOKEN_KEY);
     localStorage.removeItem('userEmail');
+
+    this.isAuthenticated = false;
     
     // Navigate to login page
     this.router.navigate([AppStrings.LOGIN_ROUTE]);
@@ -114,10 +133,19 @@ export class AuthService {
       return this.fireauth.signInWithPopup(provider).then(res => {
         localStorage.setItem('token', JSON.stringify(res.user?.uid));
         const email = res.user?.email;
-        if (email) {
+        if (email == "rahemaniflair@gmail.com") {
           localStorage.setItem(this.userEmailKey, email); // Store the user's email in localStorage
+          this.router.navigate([AppStrings.DASHBOARD_ROUTE]);
+          this.isAuthenticated=true
+        }else{
+          this.router.navigate([AppStrings.USER_DASHBOARD_MESSAGE]);
+          localStorage.setItem('token', JSON.stringify(res.user?.uid));
+          this.isAuthenticated=true
         }
-        this.router.navigate([AppStrings.DASHBOARD_ROUTE]);
+
+      
+        
+       
       }).catch(err => {
         alert(err.message);
       });
@@ -127,5 +155,8 @@ export class AuthService {
     getUserEmail(): string {
       return localStorage.getItem(this.userEmailKey) || ''; // Retrieve user's email from localStorage
     }
-  
+
+    isAuthenticatedUser(): boolean {
+      return this.isAuthenticated;
+    }
   }

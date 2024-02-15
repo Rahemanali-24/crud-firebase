@@ -7,6 +7,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import { Student } from 'src/app/model/student';
 import { DataService } from 'src/app/shared/data.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore'; // Import AngularFirestore from correct path
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -40,7 +41,8 @@ export class DashboardComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private fireAuth: AngularFireAuth,
-    private data: DataService
+    private data: DataService,
+    private afs: AngularFirestore 
   ) {}
   ngOnInit(): void {
     this.userEmail = this.authService.getUserEmail();
@@ -79,7 +81,7 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  addStudent() {
+  addStudentData() {
     if (
       this.first_name == '' ||
       this.last_name == '' ||
@@ -99,6 +101,9 @@ export class DashboardComponent implements OnInit {
 
     this.resetForm();
   }
+
+  
+  
 
 
   updateStudent() {}

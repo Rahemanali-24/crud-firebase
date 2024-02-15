@@ -12,10 +12,12 @@ export class DataService {
 
   //add student
 
+
   addStudent(student: Student){
     student.id  = this.afs.createId();
     return this.afs.collection(AppStrings.STUDENT_COLLECTION_NAME).add(student);
   }
+
 
   //get all studnents
 
@@ -24,10 +26,9 @@ export class DataService {
   }
 
   //delete student
-
   deleteStudent(student:Student){
-      return  this.afs.doc(AppStrings.STUDENT_COLLECTION_NAME_WITHID +student.id).delete();
-  }
+    return  this.afs.doc(AppStrings.STUDENT_COLLECTION_NAME_WITHID +student.id).delete();
+}
 
   //update student
 

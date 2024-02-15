@@ -38,6 +38,7 @@
               <th scope="col">LastName</th>
               <th scope="col">Email</th>
               <th scope="col">Mobile</th>
+              <th scope="col">Description</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
@@ -47,6 +48,7 @@
               <td>{{student.last_name}}</td>
               <td>{{student.email}}</td>
               <td>{{student.mobile}}</td>
+              <td>{{student.description}}</td>
               <td>
                 <button class ="btn btn-outline-danger" (click)="deleteStudnet(student)">Delete</button>
               </td>
@@ -90,8 +92,13 @@
                   <label for="mobile" class="form-label">Mobile</label>
                   <input type="text"  [(ngModel)]="mobile" class="form-control" id="mobile" name="mobile">
                 </div>
+
+                <div class="mb-3">
+                  <label for="description" class="form-label">Description</label>
+                  <input type="text"  [(ngModel)]="description" class="form-control" id="description" name="description">
+                </div>
              
-                <button type="submit" class="btn btn-primary" (click)="addStudentData()">Add Studnets</button>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="addStudentData()">Add Studnets</button>
               </form>
             </div>
           </div>

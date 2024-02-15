@@ -12,8 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './component/verify-email/verify-email.component';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { UserDashboardComponent } from './component/user-dashboard/user-dashboard.component'; // Import AngularFirestoreModule
 import { PermissionsService } from './guards/auth.guard';
+import { UserDashboardComponent } from './component/user-dashboard/user-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { PermissionsService } from './guards/auth.guard';
     DashboardComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
   ],
   imports: [
     BrowserModule,

@@ -24,23 +24,27 @@
 
 <div class="container">
     <div class="header">
-        <h3>Task to Complete</h3>
+        <h3>Student Details</h3>
 </div>
  <table class="table table-striped table-hover table-bordered">
         <thead>
-          <tr *ngFor="let user of userData">
-            <td>{{ user.firstName }}</td>
-            <td>{{ user.lastName }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.mobile }}</td>
-            <td>
-                <!-- Add action buttons here -->
-            </td>
-        </tr>
+        
+          <th>FirstName</th>
+          <th>LastName</th>
+          <th>Email</th>
+          <th>Mobile</th>
+          <th>Description</th>
+
         </thead>
         <tbody>
             <tr >
+              <tr *ngFor="let user of tasks">
                
+                <td>{{ user.first_name }}</td>
+                <td>{{ user.last_name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.mobile }}</td>
+                <td>{{ user.description }}</td>
                
             </tr>
         </tbody>

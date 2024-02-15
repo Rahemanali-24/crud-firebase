@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 import { collection, getDocs, query } from 'firebase/firestore';
 import { Query } from '@firebase/firestore-types'
 import {  where } from 'firebase/firestore';
-import 'rxjs/add/operator/toPromise';
 
 
 @Injectable({
@@ -52,14 +51,12 @@ export class DataService {
 
 
 
+  // async getDataByEmail(userEmail: string): Promise<any[]> {
+  //   const querySnapshot = await getDocs(collection(this.afs.firestore, 'Students'));
+  //   console.log(querySnapshot.docs.map((doc) => doc.data()));
+  //   return querySnapshot.docs.map((doc) => doc.data());
 
-  async getDataByEmail(): Promise<any[]> {
-    const querySnapshot = await getDocs(collection(this.afs.firestore, 'Students'));
-    console.log(querySnapshot.docs.map((doc) => doc.data()));
-    return querySnapshot.docs.map((doc) => doc.data());
-
-  }
-
+  // }
 
  
 }

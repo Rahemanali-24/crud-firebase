@@ -24,6 +24,7 @@ export class DashboardComponent implements OnInit {
     last_name: '',
     email: '',
     mobile: '',
+    description: '',
   };
 
   id: string = '';
@@ -31,6 +32,7 @@ export class DashboardComponent implements OnInit {
   last_name: string = '';
   email: string = '';
   mobile: string = '';
+  description:string = '';
 
   userEmail: string = '';
   toggleSidebar() {
@@ -78,6 +80,7 @@ export class DashboardComponent implements OnInit {
     this.last_name = '';
     this.email = '';
     this.mobile = '';
+    this.description = '';
   }
 
 
@@ -85,8 +88,8 @@ export class DashboardComponent implements OnInit {
     if (
       this.first_name == '' ||
       this.last_name == '' ||
-      this.mobile == '' ||
-      this.email == ''
+      this.mobile == '' || 
+      this.email == '' || this.description == '' 
     ) {
       alert(AppStrings.FILL_ALL_FIELDS_MESSAGE);
       return;
@@ -97,6 +100,7 @@ export class DashboardComponent implements OnInit {
     this.StudentObj.first_name = this.first_name;
     this.StudentObj.last_name = this.last_name;
     this.StudentObj.mobile = this.mobile;
+    this.StudentObj.description = this.description;
     this.data.addStudent(this.StudentObj);
 
     this.resetForm();

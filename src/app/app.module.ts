@@ -13,7 +13,7 @@ import { ForgotPasswordComponent } from './component/forgot-password/forgot-pass
 import { VerifyEmailComponent } from './component/verify-email/verify-email.component';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { UserDashboardComponent } from './component/user-dashboard/user-dashboard.component'; // Import AngularFirestoreModule
-import { JwtHelperService } from '@auth0/angular-jwt';
+import { PermissionsService } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
     ReactiveFormsModule,
    
   ],
-  providers: [ JwtHelperService],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

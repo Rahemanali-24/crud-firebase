@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 import { EmailVerificationService } from 'src/app/email-verification.service';
 import { GoogleAuthProvider,GithubAuthProvider,FacebookAuthProvider } from 'firebase/auth';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'

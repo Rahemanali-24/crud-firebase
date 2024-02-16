@@ -55,7 +55,7 @@ export class UserDashboardComponent implements OnInit {
 
   onLogout(): void {
     this.authService.logout();
-    localStorage.removeItem('userEmail');
+    localStorage.removeItem(AppStrings.USER_EMAIL_MESSAGE);
     this.router.navigate([AppStrings.LOGIN_ROUTE]); // Navigate to the login page after logout
   }
 }

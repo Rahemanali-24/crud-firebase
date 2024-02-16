@@ -45,7 +45,10 @@ export class DashboardComponent implements OnInit {
     private fireAuth: AngularFireAuth,
     private data: DataService,
     private afs: AngularFirestore 
-  ) {}
+  ) {
+
+    
+  }
   ngOnInit(): void {
     this.userEmail = this.authService.getUserEmail();
     console.log(this.userEmail);
@@ -54,7 +57,7 @@ export class DashboardComponent implements OnInit {
 
   onLogout(): void {
     this.authService.logout();
-    localStorage.removeItem('userEmail');
+    localStorage.removeItem(AppStrings.USER_EMAIL_MESSAGE);
     this.router.navigate([AppStrings.LOGIN_ROUTE]); // Navigate to the login page after logout
   }
 
@@ -139,10 +142,10 @@ export class DashboardComponent implements OnInit {
       // Clear local storage and navigate to login page
       localStorage.removeItem(AppStrings.TOKEN_KEY);
       localStorage.clear();
-      localStorage.removeItem('userEmail');
-      this.router.navigate(['/login']);
+      localStorage.removeItem(AppStrings.USER_EMAIL_MESSAGE);
+      this.router.navigate([AppStrings.LOGIN_ROUTE]);
     } catch (error) {
-      console.error('Error signing out:', error);
+      console.error(AppStrings.ERROR_SIGN_OUT_MESSAGE, error);
     }
   }
 }

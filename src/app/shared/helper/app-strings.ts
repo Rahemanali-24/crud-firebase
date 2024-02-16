@@ -27,5 +27,12 @@ export class AppStrings {
     static readonly USER_DASHBOARD_MESSAGE = 'user-dashboard';
 
     static readonly EMAIL_MESSAGE  = "email";
+
+    static readonly USER_EMAIL_MESSAGE  = "userEmail";
     static readonly STUDENTS_ROUTE  = "/Students";
+    static readonly TOKEN_MESSAGE  = "token";
+    static readonly SELECT_ACCOUNT_MESSAGE  = "select_account";
+    static readonly ERROR_SIGN_OUT_MESSAGE = "Error signing out:";  
+    
+    static readonly ADMIN_EMAIL_MESSAGE = 'rahemaniflair@gmail.com';
 }

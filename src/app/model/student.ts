@@ -5,4 +5,6 @@ export interface Student {
     email:string,
     mobile:string,
     description:string,
+    editMode?: boolean; // Add this property
+
 }

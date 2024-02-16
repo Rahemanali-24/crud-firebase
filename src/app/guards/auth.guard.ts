@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../shared/auth.service';
+import { AppStrings } from '../shared/helper/app-strings';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class PermissionsService {
       return true;
     } else {
       // Redirect to the login page if the user is not authenticated
-      this.router.navigate(['/login']);
+      this.router.navigate([AppStrings.LOGIN_ROUTE]);
       return false;
     }
   }

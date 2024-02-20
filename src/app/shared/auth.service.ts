@@ -7,15 +7,8 @@ import { map } from 'rxjs/operators';
 import { EmailVerificationService } from 'src/app/email-verification.service';
 import {
   GoogleAuthProvider,
-  GithubAuthProvider,
-  FacebookAuthProvider,
-} from 'firebase/auth';
-import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
-import firebase from 'firebase/compat/app'; // Import firebase
+} from 'firebase/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -38,7 +31,7 @@ export class AuthService {
   //login method
   
 
-  loginRoute(email: string) {
+  loginRoute(email: string,) {
     if (email == AppStrings.ADMIN_EMAIL_MESSAGE) {
       this.router.navigate([AppStrings.DASHBOARD_ROUTE]);
     } else {
@@ -154,6 +147,7 @@ export class AuthService {
           localStorage.setItem(
             AppStrings.TOKEN_MESSAGE,
             JSON.stringify(res.user?.uid)
+            
           );
           this.isAuthenticated = true;
         }
@@ -168,13 +162,15 @@ export class AuthService {
   }
 
   isAuthenticatedUser(): boolean {
-    const token = this.getToken();
+    // const token = this.getToken();
 
-    if (token && token !== '') {
-      this.isAuthenticated = true;
-    } else {
-      this.isAuthenticated = false;
-    }
+   
+
+    // if (token && token !== '') {
+    //   this.isAuthenticated = true;
+    // } else {
+    //   this.isAuthenticated = false;
+    // }
   
     return this.isAuthenticated;
   }
@@ -182,7 +178,5 @@ export class AuthService {
   private getToken(): string | null {
     return localStorage.getItem(this.tokenKey);
   }
-
- 
 
 }

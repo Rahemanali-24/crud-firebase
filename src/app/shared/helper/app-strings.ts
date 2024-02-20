@@ -1,6 +1,6 @@
 export class AppStrings {
     static readonly TOKEN_KEY = 'token';
-    static readonly DASHBOARD_ROUTE = 'dashboard';
+    static readonly DASHBOARD_ROUTE = '/dashboard';
     static readonly LOGIN_ROUTE = '/login';
     static readonly SOMETHING_WENT_WRONG_MESSAGE = 'Something went wrong';
     static readonly TRUE_VALUE = 'true';
@@ -25,7 +25,7 @@ export class AppStrings {
     static readonly CONFORMATION_DELETE_MESSAGE = 'Are you sure you want to delete';
     static readonly FILL_ALL_FIELDS_MESSAGE = "Fill all input fields";
     static readonly USER_DASHBOARD_MESSAGE = 'user-dashboard';
-
+    static readonly USER_DASHBOARD_ROUTE = '/user-dashboard';
     static readonly EMAIL_MESSAGE  = "email";
 
     static readonly USER_EMAIL_MESSAGE  = "userEmail";
@@ -35,4 +35,6 @@ export class AppStrings {
     static readonly ERROR_SIGN_OUT_MESSAGE = "Error signing out:";  
     
     static readonly ADMIN_EMAIL_MESSAGE = 'rahemaniflair@gmail.com';
+    static readonly EMPTY_ROUTE = '';
+    static readonly PATH_MATCH_FULL = 'full';
 }

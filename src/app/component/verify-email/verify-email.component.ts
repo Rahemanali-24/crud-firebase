@@ -25,7 +25,6 @@ export class VerifyEmailComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    // Unsubscribe from email verification subscription
     if (this.emailVerificationSubscription) {
       this.emailVerificationSubscription.unsubscribe();
     }

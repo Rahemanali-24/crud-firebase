@@ -10,22 +10,42 @@ import { UserDashboardComponent } from './component/user-dashboard/user-dashboar
 import { AuthGuard, PermissionsService } from './guards/auth.guard';
 
 const routes: Routes = [
+  {
+    path: AppStrings.LOGIN_MESSAGE,
+    redirectTo: AppStrings.LOGIN_MESSAGE,
+    pathMatch: AppStrings.FULL_MESSAGE,
+  },
+  { path: AppStrings.LOGIN_MESSAGE, component: LoginComponent },
+  {
+    path: AppStrings.DASHBOARD_MESSAGE,
+    canActivate: [AuthGuard],
+    component: DashboardComponent,
+  },
+  { path: AppStrings.REGISTER_MESSAGE, component: RegisterComponent },
+  { path: AppStrings.VERIFY_EMAIL_MESSAGE, component: VerifyEmailComponent },
+  {
+    path: AppStrings.FORGOT_PASSWORD_MESSAGE,
+    component: ForgotPasswordComponent,
+  },
+
+  {
+    path: AppStrings.USER_DASHBOARD_MESSAGE,
+    canActivate: [AuthGuard],
+    component: UserDashboardComponent,
+  },
+
+  {
+    path: AppStrings.EMPTY_ROUTE,
+    redirectTo:AppStrings.LOGIN_ROUTE,
+    pathMatch:AppStrings.PATH_MATCH_FULL,
+  },
 
 
-  {path: AppStrings.LOGIN_MESSAGE,redirectTo: AppStrings.LOGIN_MESSAGE,pathMatch: AppStrings.FULL_MESSAGE},
-  {path: AppStrings.LOGIN_MESSAGE,component: LoginComponent},
-  {path: AppStrings.DASHBOARD_MESSAGE,canActivate: [AuthGuard] ,component: DashboardComponent},
-  {path: AppStrings.REGISTER_MESSAGE,component: RegisterComponent},
-  { path: AppStrings.VERIFY_EMAIL_MESSAGE, component: VerifyEmailComponent } ,
-  { path: AppStrings.FORGOT_PASSWORD_MESSAGE, component: ForgotPasswordComponent } ,
-  
-  { path: AppStrings.USER_DASHBOARD_MESSAGE,canActivate: [AuthGuard], component: UserDashboardComponent } ,
-  
-  { path: '**', redirectTo: AppStrings.LOGIN_ROUTE }, // Redirect to login for any other route
+ 
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

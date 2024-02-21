@@ -2,7 +2,8 @@
 <h3 align="center">A passionate frontend developer from India</h3>
 
 
-<img align ="center" alt = "coding" width:"400" src ="src/assets/coding.gif">
+<img align="center" alt="coding" width="400" src="src/assets/coding.gif">
+
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=rahemanali&label=Profile%20views&color=0e75b6&style=flat" alt="rahemanali" /> </p>
 
